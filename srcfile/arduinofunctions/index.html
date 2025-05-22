@@ -1,0 +1,2492 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mydomain.org/mysite/srcfile/arduinofunctions/">
+      
+      
+        <link rel="prev" href="../src/">
+      
+      
+        <link rel="next" href="../Commands/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>arduino-functions - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arduino-robot-control-code-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              arduino-functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docsfile/docs/" class="md-tabs__link">
+          
+  
+  
+  Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modelsfile/models/" class="md-tabs__link">
+          
+  
+  
+  Models
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../otherfile/BOM/" class="md-tabs__link">
+          
+  
+  
+  Other
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../schemesfile/schemes/" class="md-tabs__link">
+          
+  
+  
+  Schemes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../src/" class="md-tabs__link">
+          
+  
+  
+  Src
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../t-photos/t-photos/" class="md-tabs__link">
+          
+  
+  
+  t-photos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../v-photos/v-photos/" class="md-tabs__link">
+          
+  
+  
+  v-photos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docsfile/docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Models
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Parts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Parts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/robotbase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    robot-base
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/secondlayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    second-layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/thirdlayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    third-layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/shortshaft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    short-shaft
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/longshaft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    long-shaft
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/frontshaft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    front-shaft
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/BerringSupportFrontBottom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Berring-Support-Front-Bottom
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/BerringSupportFrontTop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Berring-Support-Front-Top
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/SteeringRack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Steering-Rack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/SteeringConector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Steering-Conector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/AxleClamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Axle-Clamp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/BigGear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Big-Gear
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/gear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gear
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/FrontSupportCamera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Front-Support-Camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/BackSupportCamera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Back-Support-Camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelsfile/ConectorSupportCamera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conector-Support-Camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Other
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otherfile/BOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otherfile/PowerSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power-System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otherfile/SettingUpYourRaspberryPi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting-Up-Your-Raspberry-Pi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otherfile/SensingUnits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sensing-Units
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otherfile/SteeringSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Steering-System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otherfile/Strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Schemes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Schemes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schemesfile/schemes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schemes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Src
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Src
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Source-code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    arduino-functions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    arduino-functions
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pin-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pin Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Library Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions Explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interrupt-service-routines-isrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interrupt Service Routines (ISRs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motor-control-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motor Control Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-setup-and-reading-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor Setup and Reading Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buzzer-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buzzer Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communication-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-and-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup and Initialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-loop-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Loop Execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiring Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dashboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RaspiCommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspi-Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UbuntuCommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu-Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    t-photos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            t-photos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../t-photos/t-photos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    t-photos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    v-photos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            v-photos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../v-photos/v-photos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v-photos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pin-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pin Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Library Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions Explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interrupt-service-routines-isrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interrupt Service Routines (ISRs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motor-control-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motor Control Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-setup-and-reading-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor Setup and Reading Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buzzer-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buzzer Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communication-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-and-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup and Initialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-loop-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Loop Execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiring Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arduino-robot-control-code-documentation">Arduino Robot Control Code Documentation</h1>
+<p>This README provides a detailed explanation of the Arduino code used to control a robot equipped with distance sensors, a steering mechanism, and communication with a Raspberry Pi. The code manages motor control, steering, sensor data acquisition, and communication between the Arduino and Raspberry Pi.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#hardware-components">Hardware Components</a></li>
+<li><a href="#pin-configuration">Pin Configuration</a></li>
+<li><a href="#library-dependencies">Library Dependencies</a></li>
+<li><a href="#code-structure">Code Structure</a></li>
+<li><a href="#functions-explanation">Functions Explanation</a><ul>
+<li><a href="#interrupt-service-routines-isrs">Interrupt Service Routines (ISRs)</a></li>
+<li><a href="#encoder-functions">Encoder Functions</a></li>
+<li><a href="#motor-control-functions">Motor Control Functions</a></li>
+<li><a href="#sensor-setup-and-reading-functions">Sensor Setup and Reading Functions</a></li>
+<li><a href="#buzzer-functions">Buzzer Functions</a></li>
+<li><a href="#communication-functions">Communication Functions</a></li>
+<li><a href="#utility-functions">Utility Functions</a></li>
+</ul>
+</li>
+<li><a href="#setup-and-initialization">Setup and Initialization</a></li>
+<li><a href="#main-loop-execution">Main Loop Execution</a></li>
+<li><a href="#wiring-diagram">Wiring Diagram</a></li>
+<li><a href="#how-to-use">How to Use</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#license">License</a></li>
+</ol>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The provided Arduino code is designed to control a robot with the following features:</p>
+<ul>
+<li><strong>Motor Control</strong>: Controls the speed and direction of the robot using an L298N motor driver.</li>
+<li><strong>Steering Mechanism</strong>: Uses a servo motor for steering control.</li>
+<li><strong>Distance Sensing</strong>: Utilizes four VL53L1X distance sensors for obstacle detection in all directions (front, back, left, right).</li>
+<li><strong>Encoder Feedback</strong>: Reads encoder data to monitor motor speed and distance traveled.</li>
+<li><strong>Communication</strong>: Exchanges data with a Raspberry Pi for higher-level processing and decision-making.</li>
+<li><strong>Buzzer Alerts</strong>: Provides audible feedback for different robot states (start, stop, error).</li>
+</ul>
+<hr />
+<h2 id="hardware-components">Hardware Components</h2>
+<ul>
+<li><strong>Arduino Uno</strong> (or compatible microcontroller)</li>
+<li><strong>L298N Motor Driver</strong></li>
+<li><strong>DC Motor</strong> with encoder</li>
+<li><strong>Servo Motor</strong> for steering (connected to pin 10)</li>
+<li><strong>VL53L1X Distance Sensors</strong> (x4) for front, back, left, and right detection</li>
+<li><strong>Buzzer</strong> (connected to pin 8)</li>
+<li><strong>Switch</strong> (connected to analog pin A0)</li>
+<li><strong>Raspberry Pi 4 Model B</strong> (for data processing and control commands)</li>
+<li><strong>Miscellaneous</strong>: Resistors, wires, breadboard or PCB, connectors</li>
+</ul>
+<hr />
+<h2 id="pin-configuration">Pin Configuration</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Arduino Pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L298N EN_A (Speed)</td>
+<td>11</td>
+</tr>
+<tr>
+<td>L298N IN1 (Direction)</td>
+<td>13</td>
+</tr>
+<tr>
+<td>L298N IN2 (Direction)</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Steering Servo</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Encoder Channel A</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Encoder Channel B</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Buzzer</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Switch</td>
+<td>A0</td>
+</tr>
+<tr>
+<td>VL53L1X XSHUT Pins</td>
+<td>4, 5, 6, 7</td>
+</tr>
+<tr>
+<td>Gyroscope (example)</td>
+<td>A2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="library-dependencies">Library Dependencies</h2>
+<p>Ensure you have the following libraries installed in your Arduino IDE:</p>
+<ul>
+<li><strong>Servo.h</strong>: For controlling the servo motor.</li>
+<li><strong>VL53L1X.h</strong>: For interfacing with the VL53L1X distance sensors.</li>
+<li><strong>Wire.h</strong>: For I2C communication with sensors.</li>
+</ul>
+<hr />
+<h2 id="code-structure">Code Structure</h2>
+<p>The code is organized into several sections:</p>
+<ol>
+<li><strong>Variable and Constant Definitions</strong>: Pin assignments, sensor configurations, and control variables.</li>
+<li><strong>Interrupt Service Routines (ISRs)</strong>: Functions to handle encoder pulses.</li>
+<li><strong>Initialization Functions</strong>: Setup functions for the encoder, sensors, and initial states.</li>
+<li><strong>Motor Control Functions</strong>: Functions to control motor speed and direction.</li>
+<li><strong>Sensor Functions</strong>: Functions to read data from the VL53L1X sensors.</li>
+<li><strong>Buzzer Functions</strong>: Functions to produce different sounds for various robot states.</li>
+<li><strong>Communication Functions</strong>: Functions to send data to and receive commands from the Raspberry Pi.</li>
+<li><strong>Main Loop</strong>: The <code>loop()</code> function that runs continuously, handling the robot's operation based on the switch state.</li>
+</ol>
+<hr />
+<h2 id="functions-explanation">Functions Explanation</h2>
+<h3 id="interrupt-service-routines-isrs">Interrupt Service Routines (ISRs)</h3>
+<ul>
+<li><strong>encoderISR_A()</strong>: Increments the encoder count when a pulse is detected on Channel A.</li>
+<li><strong>encoderISR_B()</strong>: Decrements the encoder count when a pulse is detected on Channel B (if using quadrature encoding).</li>
+</ul>
+<h3 id="encoder-functions">Encoder Functions</h3>
+<ul>
+<li><strong>setupEncoder()</strong>: Initializes the encoder pins and attaches the ISRs.</li>
+<li><strong>readEncoder()</strong>: Returns the current encoder count.</li>
+<li><strong>resetEncoder()</strong>: Resets the encoder count to zero.</li>
+</ul>
+<h3 id="motor-control-functions">Motor Control Functions</h3>
+<ul>
+<li><strong>driveDistanceSpeed(float distanceCM, int speedInput)</strong>: Moves the robot a specified distance in centimeters at a given speed percentage (-100 to 100). It uses encoder feedback to determine when the desired distance has been traveled.</li>
+<li><strong>controlRobot(int speedInput, int steeringInput)</strong>: Controls the robot's speed and steering based on inputs received (e.g., from the Raspberry Pi). Speed input ranges from -100 (full reverse) to 100 (full forward). Steering input ranges from -100 (full left) to 100 (full right).</li>
+<li><strong>StopMotors()</strong>: Stops the motor by setting the control pins to LOW and speed to zero.</li>
+<li><strong>HoldMotors()</strong>: Engages both motor control pins to HIGH to hold the motor position (dynamic braking).</li>
+</ul>
+<h3 id="sensor-setup-and-reading-functions">Sensor Setup and Reading Functions</h3>
+<ul>
+<li><strong>setupSensors()</strong>: Initializes the VL53L1X distance sensors by configuring their XSHUT pins and setting unique I2C addresses.</li>
+<li><strong>readAndPrintDistances()</strong>: Reads distances from all sensors and prints them to the Serial monitor.</li>
+</ul>
+<h3 id="buzzer-functions">Buzzer Functions</h3>
+<ul>
+<li><strong>BuzzerRobotStart()</strong>: Plays a startup sound when the robot is powered on or initialized.</li>
+<li><strong>BuzzerRobotEnd()</strong>: Plays a shutdown sound when the robot operation ends.</li>
+<li><strong>BuzzerRobotError()</strong>: Plays an error sound when an issue is detected (e.g., switch is off).</li>
+<li><strong>BuzzerRobotSpecial()</strong>: Plays a special melody (optional use).</li>
+</ul>
+<h3 id="communication-functions">Communication Functions</h3>
+<ul>
+<li><strong>sendDataToPi()</strong>: Sends sensor readings and motor speed data to the Raspberry Pi via Serial communication.</li>
+<li><strong>receiveDataFromPi()</strong>: Receives control commands from the Raspberry Pi and parses them to control the robot.</li>
+</ul>
+<h3 id="utility-functions">Utility Functions</h3>
+<ul>
+<li><strong>isSwitchOn(int value)</strong>: Determines if the switch is in the "on" position based on the analog reading.</li>
+<li><strong>act()</strong>: Performs the main actions of sending data to and receiving commands from the Raspberry Pi.</li>
+</ul>
+<hr />
+<h2 id="setup-and-initialization">Setup and Initialization</h2>
+<ol>
+<li><strong>Serial Communication</strong>: Begins Serial communication at 115200 baud rate for communication with the Raspberry Pi.</li>
+<li><strong>I2C Communication</strong>: Initializes the I2C bus for communication with the distance sensors.</li>
+<li><strong>Pin Modes</strong>: Sets the appropriate pin modes for motor control, buzzer, and switch.</li>
+<li><strong>Servo Initialization</strong>: Attaches the steering servo to the designated pin.</li>
+<li><strong>Motor and Encoder Initialization</strong>: Ensures motors are stopped and encoders are set up.</li>
+<li><strong>Sensor Initialization</strong>: Calls <code>setupSensors()</code> to initialize all distance sensors.</li>
+<li><strong>Startup Sound</strong>: Plays the startup sound using <code>BuzzerRobotStart()</code>.</li>
+</ol>
+<hr />
+<h2 id="main-loop-execution">Main Loop Execution</h2>
+<p>The <code>loop()</code> function continuously performs the following steps:</p>
+<ol>
+<li><strong>Switch State Check</strong>: Reads the switch value to determine if the robot should operate.</li>
+<li><strong>Operation Execution</strong>:</li>
+<li>If the switch is on (<code>isSwitchOn(switchValue)</code> returns <code>true</code>), it calls the <code>act()</code> function to handle communication and control.</li>
+<li>If the switch is off, it stops the motors (<code>HoldMotors()</code>) and plays an error sound (<code>BuzzerRobotError()</code>).</li>
+</ol>
+<hr />
+<h2 id="wiring-diagram">Wiring Diagram</h2>
+<p><strong>Note</strong>: Please refer to the pin configuration section and ensure all components are connected according to the assigned pins. A wiring diagram would typically be provided here, but since this is a text-based format, please ensure:</p>
+<ul>
+<li><strong>Motors</strong>: Connected to the L298N motor driver, which is then connected to the Arduino pins <code>ENA</code>, <code>IN_1</code>, and <code>IN_2</code>.</li>
+<li><strong>Encoder</strong>: Encoder channels A and B connected to pins <code>2</code> and <code>3</code>.</li>
+<li><strong>Servo Motor</strong>: Signal wire connected to pin <code>10</code>.</li>
+<li><strong>VL53L1X Sensors</strong>: Each sensor's XSHUT pin connected to pins <code>4</code>, <code>5</code>, <code>6</code>, and <code>7</code>. SDA and SCL connected to Arduino's SDA and SCL pins.</li>
+<li><strong>Buzzer</strong>: Positive pin connected to pin <code>8</code>, negative pin connected to ground.</li>
+<li><strong>Switch</strong>: One side connected to analog pin <code>A0</code>, the other side connected to <code>5V</code>, with a pull-down resistor connected to ground if necessary.</li>
+<li><strong>Raspberry Pi</strong>: Connected via Serial communication to the Arduino (ensure voltage levels are compatible or use a logic level converter).</li>
+</ul>
+<hr />
+<h2 id="how-to-use">How to Use</h2>
+<ol>
+<li><strong>Hardware Setup</strong>: Assemble the robot according to the wiring diagram and ensure all connections are secure.</li>
+<li><strong>Library Installation</strong>: Install all required libraries in the Arduino IDE.</li>
+<li><strong>Upload Code</strong>: Load the provided code into the Arduino IDE and upload it to the Arduino board.</li>
+<li><strong>Power On</strong>: Turn on the robot. The startup sound should play.</li>
+<li><strong>Switch Activation</strong>: Flip the switch connected to pin <code>A0</code> to the "on" position to enable robot operation.</li>
+<li><strong>Raspberry Pi Connection</strong>: Ensure the Raspberry Pi is connected and running the appropriate code to send control commands and receive sensor data.</li>
+<li><strong>Operation</strong>: The robot will begin operating based on commands from the Raspberry Pi, moving, steering, and avoiding obstacles as programmed.</li>
+</ol>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>No Movement</strong>: If the robot doesn't move, check motor connections and ensure the motor driver is properly connected.</li>
+<li><strong>Sensors Not Responding</strong>: Verify the connections of the VL53L1X sensors and ensure their addresses are correctly set.</li>
+<li><strong>Buzzer Not Sounding</strong>: Check the buzzer connections and ensure it is connected to the correct pin.</li>
+<li><strong>Serial Communication Issues</strong>: Ensure the baud rate matches on both the Arduino and Raspberry Pi. Check connections.</li>
+<li><strong>Switch Not Working</strong>: Verify the switch is correctly connected and functioning. Use a multimeter to test continuity.</li>
+</ul>
+<hr />
+<h2 id="license">License</h2>
+<p>This project is open-source and free to use under the MIT License.</p>
+<hr />
+<p><strong>Note</strong>: Always ensure safety when operating robots. Keep clear of moving parts, and disconnect power when making adjustments or modifications.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
